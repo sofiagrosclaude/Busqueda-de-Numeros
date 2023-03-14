@@ -1,0 +1,71 @@
+using System;
+
+namespace TPFinal_Grosclaude
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int n;
+            int maximoPar = 0;
+            int con = 0;
+            int minimoPrimo = 0;
+            
+            Console.WriteLine("Ingrese un nro: ");
+            n = int.Parse(Console.ReadLine());
+
+            int banderaPar = 0;  
+            int banderaPrimo = 0;
+
+            while(n > 0){
+
+                if(n % 2 == 0){//PAR
+                    if(banderaPar == 0){
+                        maximoPar = n;
+                        banderaPar = 1;
+                    }else if(n > maximoPar)
+                        maximoPar = n;
+                        
+                }
+                if(n % 2 != 0){//IMPAR
+                    con++;
+                }
+                if(primo(n)){
+                    if(banderaPrimo == 0){
+                        minimoPrimo = n;
+                        banderaPrimo = 1;
+                    }else if(n < minimoPrimo)
+                        minimoPrimo = n;
+
+                }
+
+            Console.WriteLine("Ingrese un nro: ");
+            n = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("El mayor de los números pares es: " + maximoPar);
+            Console.WriteLine("La cantidad de números impares es: " + con);
+            Console.WriteLine("El menor de los números primos es: " + minimoPrimo);
+        }
+
+        static bool primo(int a)
+        {
+            int con = 0;
+            
+            for (int x = 1; x <= a; x++)
+            {
+                   
+                if(a % x == 0){
+                con++;
+                }
+                 
+            }            
+            if(con == 2) 
+                return true;                
+            else
+                return false;
+
+        }   
+    }
+}
